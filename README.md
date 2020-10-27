@@ -1,4 +1,15 @@
-# 201FinalProject: SCearch
+# 201 Final Project: SCearch
+University of Southern California
+Fall 2020
+
+Team Members:
+Tara Conti
+Ritika Dendi
+Tyler Fong
+Aaron Ly
+Lauren Tsai
+Steven Vorona
+
 
 ## 1. Introduction
 ### 1.1 Purpose
