@@ -1,5 +1,6 @@
 # 201 Final Project: SCearch
 University of Southern California
+
 Fall 2020
 
 Team Members:
