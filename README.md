@@ -3,12 +3,7 @@ University of Southern California
 Fall 2020
 
 Team Members:
-Tara Conti
-Ritika Dendi
-Tyler Fong
-Aaron Ly
-Lauren Tsai
-Steven Vorona
+Tara Conti, Ritika Dendi, Tyler Fong, Aaron Ly, Lauren Tsai, Steven Vorona
 
 
 ## 1. Introduction
