@@ -1,0 +1,3 @@
+mysql -h scearch.cgmp7xzel2am.us-west-1.rds.amazonaws.com -P 3306 -u admin -p
+
+password is admin123
