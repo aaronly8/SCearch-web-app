@@ -8,15 +8,15 @@ public class SearchClasses
 {
 	public static void main (String[] args)
 	{
-		String db = "jdbc:mysql://localhost:3306/Fall2020Schedule?serverTimezone=PST";
-		String user = "root";
-		String pwd = "root";
+		String db = "jdbc:mysql://scearch.cgmp7xzel2am.us-west-1.rds.amazonaws.com:3306/scearch?serverTimezone=PST";
+		String user = "admin";
+		String pwd = "admin123";
 		String sql = "SELECT Instructor, Overall_Rating, Days, Time\n" + 
 				"FROM ClassInfo\n" + 
 				"WHERE Course_number LIKE ? ";
-		String sql2 = "SELECT UserEmail, ReviewContent "+ 
-				"FROM Review\n" + 
-				"WHERE Instructor= ? ";
+		String sql2 = "SELECT user, body "+ 
+				"FROM reviews\n" + 
+				"WHERE prof= ? ";
 
 		try (Connection conn = DriverManager.getConnection(db, user, pwd);
 			  PreparedStatement ps = conn.prepareStatement(sql);
@@ -52,6 +52,7 @@ public class SearchClasses
 				rs.getString("Overall_Rating") + "\t" +
 				rs.getString("Days") + "\t" +
 				rs.getString("Time"));
+			i++;
 		}
 		return profNames;
 	}
@@ -77,7 +78,7 @@ public class SearchClasses
 	public static void printReviews(ResultSet rs) throws SQLException{
 		while (rs.next())
 			System.out.println (
-				rs.getString("UserEmail") + "\t" +
-				rs.getString("ReviewContent"));
+				rs.getString("user") + "\t" +
+				rs.getString("body"));
 	}
 }
