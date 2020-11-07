@@ -1,0 +1,12 @@
+201 Notes
+
+
+Database:
+- Name: search
+- Endpoint: scearch.cgmp7xzel2am.us-west-1.rds.amazonaws.com
+- User: admin
+- Password: admin123
+- Command
+    - mysql -h scearch.cgmp7xzel2am.us-west-1.rds.amazonaws.com -P 3306 -u admin -p
+        - Password = admin123
+- Conducive to both terminal connection and MySQL workbench via standard TCP/IP options
