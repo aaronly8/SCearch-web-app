@@ -42,18 +42,17 @@ public class ReviewFactory {
 		
 		//id, user, section, classname, prof, body, year, major
 		//UPLOAD review
-		String upload = "INSERT INTO reviews (id, display, section, classname, prof, body, year, major)\n" + 
-				" values(?,?,?,?,?,?,?,?);";
+		String upload = "INSERT INTO reviews (display, section, classname, prof, body, year, major)\n" + 
+				" values(?,?,?,?,?,?,?);";
 		try (Connection conn = DriverManager.getConnection(db, user, pwd);
 				CallableStatement st= conn.prepareCall(upload);){
-					st.setInt(1,id);
-					st.setString(2, display);
-					st.setString(3, section);
-					st.setString(4, classname);
-					st.setString(5, prof);
-					st.setString(6, body);
-					st.setInt(7, year);
-					st.setString(8, major);
+					st.setString(1, display);
+					st.setString(2, section);
+					st.setString(3, classname);
+					st.setString(4, prof);
+					st.setString(5, body);
+					st.setInt(6, year);
+					st.setString(7, major);
 					
 					int success = st.executeUpdate();
 					if(success>0) {
@@ -114,13 +113,5 @@ public class ReviewFactory {
 				{System.out.println("SQLException: " + ex.getMessage());
 				return false;
 				}
-		
-		
 	}
-
-	
-	
-	
-	
-
 }
