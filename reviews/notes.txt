@@ -1,0 +1,35 @@
+201 Notes
+
+Review Structure:
+- reviews Table
+    - id: int
+    - user: varchar
+    - section: varchar (*note that section is the section name how it appears on registrar*)
+    - classname: varchar (*written out name of the class*)
+    - prof: varchar
+    - body: varchar (currently limited to 250 characters)
+    - year: int
+    - major: varchar
+
+On inputting to reviews table, input "user" field as either FirstName LastName or Anonymous
+- Do not discern who is anonymous on the backend: use the frontend
+
+New Review:
+Front End:
+- User accesses page with review
+- User inputs fields
+- On press submit: POST request to backend containing all fields as JSON
+
+Back End:
+- Listener accepts POST request with all fields as JSON
+- Forms SQL query to "reviews" table
+- INSERT into reviews table
+
+Viewing Reviews:
+Front End:
+- GET request based on "section"
+
+Back End
+- Sees GET request (i.e. get all reviews for CSCI-201)
+- Forms query (i.e. SELECT * FROM reviews WHERE section="CSCI-201")
+- Returns results of query to the GET request

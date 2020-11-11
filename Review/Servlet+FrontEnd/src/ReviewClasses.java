@@ -8,7 +8,7 @@ import java.io.*;
 public class ReviewClasses {
 	private static String db = "jdbc:mysql://localhost/ReviewDummy?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=America/Los_Angeles";
 	private static String user = "root";
-	private static  String pwd  = "root";
+	private static  String pwd  = "ty9493638122";
 	private static Integer year = Calendar.getInstance().get(Calendar.YEAR);
 	
 	public static void main(String[] args) {	
@@ -21,6 +21,13 @@ public class ReviewClasses {
 	public static Boolean uploadReview(String userEmail,String classs,String prof,String major,Integer yearUpload,String reviewContent) {
 		//userEmail,class,prof,major,yearUpload,reviewContent
 		//UPLOAD review
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		
 		String upload = "INSERT INTO Review (userEmail,class,prof,major,yearUpload,reviewContent)\n" + 
 				" values(?,?,?,?,?,?);";
 		try (Connection conn = DriverManager.getConnection(db, user, pwd);
@@ -50,6 +57,13 @@ public class ReviewClasses {
 		
 		//EDIT review
 		//Assuming user is logged in
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		
 		String edit = "UPDATE Review\n" + "SET \n" + "reviewContent = ?,\n" + 
 				"yearUpload = ?\n" + "WHERE\n" + "    id = ?;";
 		try (Connection conn = DriverManager.getConnection(db, user, pwd);
@@ -75,6 +89,13 @@ public class ReviewClasses {
 	}
 	
 	public static Boolean deleteReview(Integer id) {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+	
 		String delete = "DELETE FROM Review WHERE id = ?";
 		try (Connection conn = DriverManager.getConnection(db, user, pwd);
 				CallableStatement st= conn.prepareCall(delete);){
@@ -101,10 +122,8 @@ public class ReviewClasses {
 
 	/*
 	 * 
-	DROP DATABASE IF EXISTS ReviewDummy;
-CREATE DATABASE ReviewDummy;
-use ReviewDummy;
-
+use use fall2020schedule;
+drop table if exists Review; 
 create table Review (
   id INT primary key AUTO_INCREMENT, 
   userEmail varchar(100), 
