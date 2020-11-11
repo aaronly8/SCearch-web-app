@@ -1,0 +1,140 @@
+
+html{
+	margin: 0;
+    height: 100%;
+}
+body {
+	background-color: #faf9f2;
+	margin: 0;
+    height: 100%;
+    
+}
+
+.TopBar{
+	display: flex;
+	height: 50px;
+	background-color: #faf9f2;
+	flex-direction: row;
+	border-bottom: 2px solid ;
+}
+
+.NavBar{
+	display: flex;
+	flex-direction: row;
+	align-items:center;
+	width: 100%;
+	justify-content: center;
+	
+}
+
+.Align{
+	display: flex;
+	
+}
+
+
+.Title {
+	font-family: lobster;
+	font-weight: bold;
+	font-size: 28px;
+	color: #990000;
+	cursor: default;
+}
+
+.Title:hover, .User:hover, .Log:hover{
+	color: #FFCC00;
+}
+
+.User{
+	display: flex;
+	align-items: center;
+	font-family: lobster;
+	font-size: 20px;
+	color: #990000;
+	cursor: pointer;
+	width: 20%;
+	justify-content: flex-end;
+}
+
+.Divider{
+	display:flex;
+	align-items: center;
+	font-size: 30px;
+	margin-left: 20px;
+	margin-right: 20px;
+	color: black;
+}
+
+.Log{
+	font-family: lobster;
+	font-size: 20px;
+	color: #990000;
+	cursor: pointer;
+	align-items:center;
+	display: flex;
+	margin-right: 50px;
+}
+
+
+.Content{
+	display: flex;
+	margin-top: 50px;
+	justify-content: center;
+}
+
+.ReviewSect{
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    height: 75%;
+   	width: 530px;
+    box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.3);
+    padding-bottom: 15px;
+}
+
+.ClassTitle{
+	display: flex;
+	margin-top: 30px;
+}
+.Prof{
+	display: flex;
+	margin-top: 30px;
+}
+.Header{
+	display: flex;
+	margin-top: 30px;
+}
+
+.Who{
+	display: flex;
+	margin-top: 5px;
+	align-items: center;
+	justify-content: center;
+}
+
+.Text{
+	font-size: 20px;
+	color: #990000;
+	cursor: default;
+}
+
+.ReviewInput{
+	padding-top: 10px;
+    resize: vertical;
+    width: 400px;
+    height: 250px;
+	
+}
+
+.SubmitButton{
+	margin-top: 15px;
+	
+}
+
+.Form{
+	display: flex;
+	flex-direction: column;
+}
+
+
