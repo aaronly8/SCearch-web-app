@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.awt.List;
 import java.io.*;
 
-public class SearchClasses
+public class SearchOrig
 {
 	public static void main (String[] args)
 	{
@@ -14,7 +14,7 @@ public class SearchClasses
 		String sql = "SELECT Instructor, Overall_Rating, Days, Time\n" + 
 				"FROM ClassInfo\n" + 
 				"WHERE Course_number LIKE ? ";
-		String sql2 = "SELECT user, body "+ 
+		String sql2 = "SELECT UserEmail, ReviewContent "+ 
 				"FROM reviews\n" + 
 				"WHERE prof= ? ";
 

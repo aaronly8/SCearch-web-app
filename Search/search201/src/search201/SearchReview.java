@@ -1,29 +1,42 @@
 package search201;
 
-import java.io.*;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.WebServlet;
 
-@WebServlet("/searchProf")
-public class searchProf extends HttpServlet
-{
-	
-	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-	{
+/**
+ * Servlet implementation class SearchReview
+ */
+@WebServlet("/SearchReview")
+public class SearchReview extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public SearchReview() {
+        super();
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// sql initializations
 		String db = "jdbc:mysql://scearch.cgmp7xzel2am.us-west-1.rds.amazonaws.com:3306/scearch?serverTimezone=PST";
 		String user = "admin";
 		String pwd = "admin123";
-		String sql = "SELECT Instructor, Overall_Rating, Days, Time\n" + 
-				"FROM ClassInfo\n" + 
-				"WHERE Course_number LIKE ?";
+		String sql = "SELECT display, section, classname, body\n"+ 
+		"FROM reviews\n" + 
+		"WHERE prof= ? ";
 		
-		// gets course to search
-		String course= request.getParameter("course");
+		// get professor to search
+		String prof = request.getParameter("prof");
 		response.setContentType("text/html");
-		
+
 		// heading
 		PrintWriter out = response.getWriter();
 		out.println("<html>");
@@ -43,44 +56,46 @@ public class searchProf extends HttpServlet
 				"<div class=\"Log\">LogOut</div>\n" + 
 				"</div>");
 		
-		// professor for course
-		out.println("<h2>Professors for "+course+"</h2>");
+		// reviews for professor
+		out.println("<h2>Reviews for "+prof+"</h2>");
 		out.println("<div class=\"center\">");
-		out.println("<form id=\"profList\" action=\"SearchReview\" method=\"GET\">");
 		out.println(
 				"<div class=\"center\"> <table border=\"1\" cellpadding=\"5\">\n" + 
 				"<tr>\n" + 
-				"<th>Professor</th>\n" + 
-				"<th>Overall Rating</th>\n" + 
-				"<th>Days</th>\n" + 
-				"<th>Time</th>\n" + 
-				 "</tr>\n");
+				"<th>Student Name</th>\n" + 
+				"<th>Class</th>\n" +
+				"<th>Review</th>\n" +
+				"</tr>\n");
 		
-		// retrieves course from the database
+		// retrieves reviews from the database
 		try (Connection conn = DriverManager.getConnection(db, user, pwd);
 			  PreparedStatement ps = conn.prepareStatement(sql);) {
-			ps.setString(1, "%"+course+"%");
+			ps.setString(1, prof);
 			ResultSet rs = ps.executeQuery();
-			
-			// prints out professors for a course
+
+			// prints out reviews for a professor
 			while (rs.next())
 			{
-				String myProf = rs.getString("Instructor");
-				out.println("<tr><td><input type=\"radio\" name=\"prof\" value = \"" + myProf + "\"" + ">\n"+
-						"<label>" +rs.getString("Instructor")+"</label></td>");
+				out.println("<tr><td>" + rs.getString("display") + "</td> \n");
 				out.println(
-				"<td>" + rs.getString("Overall_Rating") + "</td>\n");
+						"<td>" + rs.getString("section") + " " + rs.getString("classname") + "</td>\n");
 				out.println(
-						"<td>" + rs.getString("Days") + "</td>\n");
-				out.println(
-				"<td>" + rs.getString("Time") + "</td>\n </tr>\n");
+						"<td>" + rs.getString("body") + "</td>\n </tr>\n");
 			}
 			out.println("</table></div>");
-			out.println("<input type=\"submit\" value=\"Search\"></form>");
 			out.println("</div>");
 			out.println("</body></html>");
 		} catch (SQLException sqle) {
 			System.out.println ("SQLException: " + sqle.getMessage());
 		}
+		
 	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	}
+
 }
