@@ -35,7 +35,7 @@
     				<div class="Title">SCearch</div>
     			</div>
     		</nav>
-    	
+    		<div class= "User"><a href="searchCourse.html">Search</a></div>
     		<div class= "User">Welcome, <%=name%></div>
     		<div class ="Divider"> | </div>
     		<div class="Log">LogOut</div>
