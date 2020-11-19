@@ -27,10 +27,17 @@ public class SearchReview extends HttpServlet {
 		String db = "jdbc:mysql://scearch.cgmp7xzel2am.us-west-1.rds.amazonaws.com:3306/scearch?serverTimezone=PST";
 		String user = "admin";
 		String pwd = "admin123";
-		String sql = "SELECT display, section, classname, body\n"+ 
+		String sql = "SELECT display, section, classname, body, id\n"+ 
 		"FROM reviews\n" + 
 		"WHERE prof= ? ";
 		
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
 		// get professor to search
 		String prof = request.getParameter("prof");
 		response.setContentType("text/html");
@@ -41,6 +48,8 @@ public class SearchReview extends HttpServlet {
 		out.println("<head><title>Search</title>"
 				+ "<link rel = \"stylesheet\" type = \"text/css\" href = \"search.css\" />\n"
 				+ "<link href=\"https://fonts.googleapis.com/css2?family=Lobster&display=swap\" rel=\"stylesheet\">\n" 
+				+ "<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js\"></script>\n"
+				+ "<script src=\"EditDelete.js\"></script>\n"
 				+ "</head>");
 		out.println("<body>");
 		out.println("<div class=\"TopBar\" >\n" + 
@@ -75,11 +84,16 @@ public class SearchReview extends HttpServlet {
 			// prints out reviews for a professor
 			while (rs.next())
 			{
-				out.println("<tr><td>" + rs.getString("display") + "</td> \n");
+				out.println("<tr  id='"+rs.getString("id")+"'>"+"<td>" + rs.getString("display") + "</td> \n");
 				out.println(
 						"<td>" + rs.getString("section") + " " + rs.getString("classname") + "</td>\n");
 				out.println(
-						"<td>" + rs.getString("body") + "</td>\n </tr>\n");
+						"<td  class='body' id='rev"+rs.getString("id")+"' >" + rs.getString("body") + "</td>\n");
+				out.println(
+						"<td>" + "<button revID='"+rs.getString("id")+"' class='editbtn' >edit</button>" + "<button  style='display: none;' revID='"+rs.getString("id")+"' class='confirm' >save</button>"+ "</td> \n");
+				out.println(
+						"<td>" + "<button  revID='"+rs.getString("id")+"' class='deletebtn' >delete</button>" + "</td> \n");
+				out.println("</tr>\n");
 			}
 			out.println("</table></div>");
 			out.println("</div>");

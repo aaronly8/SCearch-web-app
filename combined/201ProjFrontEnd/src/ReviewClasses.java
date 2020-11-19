@@ -9,7 +9,7 @@ public class ReviewClasses {
 	private static String db = "jdbc:mysql://localhost/ReviewDummy?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=America/Los_Angeles";
 	private static String user = "root";
 	private static  String pwd  = "ty9493638122";
-	private static Integer year = Calendar.getInstance().get(Calendar.YEAR);
+	public static Integer year = Calendar.getInstance().get(Calendar.YEAR);
 	
 	public static void main(String[] args) {	
 		uploadReview("student@usc.edu","CSCI 270","Kempe","CS",year,"Hello there");
