@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/Servlet")
 public class Servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	String nextPage = "/Profile.jsp";
+	String nextPage = "/searchCourse.jsp";
 
    public void init() throws ServletException {
       // Do required initialization
