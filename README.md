@@ -1,12 +1,12 @@
 # 201 Final Project: SCearch
+## Instructions for running the program can be found in the deployment doc. The detailed SRS is also contained within there.
+
 University of Southern California
 
 Fall 2020
 
 Team Members:
 Tara Conti, Ritika Dendi, Tyler Fong, Aaron Ly, Lauren Tsai, Steven Vorona
-
-## Instructions for running the program can be found in the deployment doc. The detailed SRS is also contained within there.
 
 ## 1. Introduction
 ### 1.1 Purpose
