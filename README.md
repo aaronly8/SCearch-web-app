@@ -1,5 +1,6 @@
-# 201 Final Project: SCearch
 ## Instructions for running the program can be found in the deployment doc. The detailed SRS is also contained within there.
+
+# 201 Final Project: SCearch
 
 University of Southern California
 
