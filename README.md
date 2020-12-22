@@ -1,6 +1,6 @@
-## Instructions for running the program can be found in the deployment doc. The detailed SRS is also contained within there.
+## Instructions for running the program can be found in the deployment doc. The detailed SRS is also contained within there. Below is a brief overview of the project, taken from the first pages of the SRS.
 
-# 201 Final Project: SCearch
+# SCearch
 
 University of Southern California
 
