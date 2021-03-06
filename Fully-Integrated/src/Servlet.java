@@ -31,11 +31,7 @@ public class Servlet extends HttpServlet {
       	String db = "jdbc:mysql://scearch.cgmp7xzel2am.us-west-1.rds.amazonaws.com:3306/scearch";
 		String user = "admin";
 		String pwd = "admin123";
-      	/*
-  		String db = "jdbc:mysql://localhost/SCearch?autoRecconect=true&useSSL=false";
-  		String user = "root";
-  		String pwd = "C0ppell2";
-  		*/
+ 
   		String sql1 = "INSERT INTO login (user, pass) VALUES  (?, ?)";
   		String sql2 = "INSERT INTO profile (user, fname, lname, major, email) VALUES  (?, ?, ?, ?, ?)";
   		String sql3 = "{CALL findProcedure(?, ?, ?)}";
