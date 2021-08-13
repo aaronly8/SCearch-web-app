@@ -1,13 +1,8 @@
-## Instructions for running the program can be found in the deployment doc. The detailed SRS is also contained within there. Below is a brief overview of the project, taken from the first pages of the SRS.
-
 # SCearch
 
 University of Southern California
 
 Fall 2020
-
-Team Members:
-Tara Conti, Ritika Dendi, Tyler Fong, Aaron Ly, Lauren Tsai, Steven Vorona
 
 ## 1. Introduction
 ### 1.1 Purpose
