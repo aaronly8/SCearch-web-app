@@ -1,14 +1,9 @@
 # SCearch
 
-University of Southern California
-
-Fall 2020
+Instructions for running program included in deployment doc
 
 ## 1. Introduction
-### 1.1 Purpose
-This SRS for SCearch release 0.1.0 outlines the functional and nonfunctional requirements for the system being built. This document is to be used as a reference for the team members building and testing the system.
-
-### 1.2 Project Scope
+### 1.1 Project Scope
 The SCearch system allows students to make a more informed decision about the classes and professors they want to take for the upcoming academic term by having the ability to search for classes, view information about professors teaching those classes, write reviews about their experiences in a class, and contact past students who have taken the class from a professor.
 
 ## 2. SRS
